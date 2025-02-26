@@ -42,10 +42,10 @@ def detect_signal(df):
 def execute_trade(signal):
     if signal == "BUY":
         print("📈 Achat détecté - Exécution de l’ordre d’achat")
-        # exchange.create_market_buy_order(SYMBOL, 0.001)  # Désactiver en test !
+        exchange.create_market_buy_order(SYMBOL, 0.001)  # Désactiver en test !
     elif signal == "SELL":
         print("📉 Vente détectée - Exécution de l’ordre de vente")
-        # exchange.create_market_sell_order(SYMBOL, 0.001)
+        exchange.create_market_sell_order(SYMBOL, 0.001) # Désactiver en test !
 
 # 🔹 Exécuter le bot 🔹
 df = get_data()
