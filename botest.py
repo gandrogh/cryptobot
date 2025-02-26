@@ -2,17 +2,26 @@ import ccxt
 import yfinance as yf
 import pandas as pd
 
+print('CCXT version:', ccxt.__version__)  # requires CCXT version > 1.20.31
+exchange = ccxt.kucoin({
+    'apiKey': 'YOUR_API_KEY',
+    'secret': 'YOUR_API_SECRET',
+    'enableRateLimit': True,
+    'options': {
+        'defaultType': 'future',  # ←-------------- quotes and 'future'
+    },
+})
+exchange.set_sandbox_mode(True)  # enable sandbox mode
+
+exchange.load_markets()
+
+# exchange.verbose = True  # uncomment this line if it doesn't work
+
 # 🔹 PARAMÈTRES 🔹
 SYMBOL = "BTC/USDT"  # Crypto tradée
-EXCHANGE_NAME = "binance"  # Exchange (Binance, KuCoin...)
+EXCHANGE_NAME = "kucoin"  # Exchange (Binance, KuCoin...)
 EMA_SHORT = 9
 EMA_LONG = 21
-
-# 🔹 Connexion à l'Exchange 🔹
-exchange = ccxt.binance({
-    "apiKey": "VOTRE_API_KEY",
-    "secret": "VOTRE_SECRET_KEY"
-})
 
 # 🔹 Récupérer les données 🔹
 def get_data(symbol="BTC-USD"):
