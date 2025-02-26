@@ -5,7 +5,7 @@ import pandas as pd
 print('CCXT version:', ccxt.__version__)  # requires CCXT version > 1.20.31
 exchange = ccxt.kucoin({
     'apiKey': '67be022945e41a0001668f7e ',
-    'secret': 'YOUR_API_SECRET',
+    'secret': 'ca6f8519-8b50-4236-ab2f-108a23203f5b',
     'enableRateLimit': True,
     'options': {
         'defaultType': 'future',  # ←-------------- quotes and 'future'
