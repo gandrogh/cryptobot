@@ -11,7 +11,7 @@ exchange = ccxt.kucoin({
         'defaultType': 'future',  # ←-------------- quotes and 'future'
     },
 })
-exchange.set_sandbox_mode(True)  # enable sandbox mode
+#exchange.set_sandbox_mode(True)  # enable sandbox mode PAS D'URL SANDBOX
 
 exchange.load_markets()
 
