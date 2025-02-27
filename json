@@ -1,0 +1,79 @@
+{
+    "spot": {
+        "sandbox": false,
+        "createOrder": {
+            "marginMode": true,
+            "triggerPrice": true,
+            "triggerPriceType": null,
+            "triggerDirection": false,
+            "stopLossPrice": true,
+            "takeProfitPrice": true,
+            "attachedStopLossTakeProfit": null,
+            "timeInForce": {
+                "IOC": true,
+                "FOK": true,
+                "PO": true,
+                "GTD": true,
+                "GTC": true
+            },
+            "hedged": false,
+            "trailing": false,
+            "leverage": false,
+            "marketBuyByCost": true,
+            "marketBuyRequiresPrice": false,
+            "selfTradePrevention": true,
+            "iceberg": true,
+            "stopLoss": null,
+            "takeProfit": null,
+            "symbolRequired": true
+        },
+        "createOrders": {
+            "max": 5,
+            "symbolRequired": true
+        },
+        "fetchMyTrades": {
+            "marginMode": true,
+            "limit": null,
+            "daysBack": null,
+            "untilDays": 7,
+            "symbolRequired": true
+        },
+        "fetchOrder": {
+            "marginMode": false,
+            "trigger": true,
+            "trailing": false,
+            "symbolRequired": true
+        },
+        "fetchOpenOrders": {
+            "marginMode": true,
+            "limit": 500,
+            "trigger": true,
+            "trailing": false,
+            "symbolRequired": true
+        },
+        "fetchOrders": null,
+        "fetchClosedOrders": {
+            "marginMode": true,
+            "limit": 500,
+            "daysBack": null,
+            "daysBackCanceled": null,
+            "untilDays": 7,
+            "trigger": true,
+            "trailing": false,
+            "symbolRequired": true
+        },
+        "fetchOHLCV": {
+            "limit": 1500,
+            "symbolRequired": true
+        }
+    },
+    "swap": {
+        "linear": null,
+        "inverse": null
+    },
+    "future": {
+        "linear": null,
+        "inverse": null
+    },
+    "option": null
+}
