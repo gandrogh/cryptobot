@@ -1,0 +1,84 @@
+1. Structure globale
+Le JSON est organisé en quatre catégories principales :
+
+"spot" → Marché au comptant (achat/vente immédiat des cryptos).
+"swap" → Contrats perpétuels (peut être "linear" ou "inverse", mais ici les valeurs sont null).
+"future" → Contrats à terme (linear et inverse, aussi null).
+"option" → Options (également null, donc non supporté ici).
+2. Détail du Marché Spot ("spot")
+Le marché spot contient plusieurs fonctionnalités clés :
+
+2.1. Mode Sandbox ("sandbox")
+"sandbox": false → Indique que le mode test (sandbox) est désactivé.
+2.2. Création d'un ordre ("createOrder")
+Ce bloc définit les options disponibles lors de la création d'un ordre.
+
+Clé	Description
+"marginMode"	Permet de spécifier un mode de marge (True).
+"triggerPrice"	Permet d'ajouter un prix de déclenchement (True).
+"triggerPriceType"	Définit le type de prix de déclenchement (actuellement null).
+"triggerDirection"	Détermine si l'ordre est déclenché à la hausse/baisse (False).
+"stopLossPrice"	Permet de fixer un prix de stop-loss (True).
+"takeProfitPrice"	Permet de fixer un prix de take-profit (True).
+"attachedStopLossTakeProfit"	Possibilité d'attacher stop-loss et take-profit (null).
+"timeInForce"	Modes de gestion de l'ordre (IOC, FOK, PO, GTD, GTC).
+"hedged"	Indique si la couverture (hedging) est activée (False).
+"trailing"	Indique si un stop suiveur (trailing stop) est possible (False).
+"leverage"	Effet de levier disponible (False).
+"marketBuyByCost"	Acheter par coût total et non par quantité (True).
+"marketBuyRequiresPrice"	Nécessite un prix pour un achat au marché (False).
+"selfTradePrevention"	Empêche les auto-transactions (True).
+"iceberg"	Ordres iceberg possibles (True).
+"stopLoss" / "takeProfit"	Champs null, ce qui signifie qu'ils ne sont pas définis.
+"symbolRequired"	Indique si un symbole est requis (True).
+📌 Explication rapide : Ce bloc montre que l'API permet des ordres avancés avec des options comme le stop-loss, take-profit, auto-prévention des transactions, etc..
+
+2.3. Création d'ordres multiples ("createOrders")
+"max": 5 → Max 5 ordres peuvent être créés en une seule requête.
+"symbolRequired": true → Un symbole (ex: BTC/USDT) est obligatoire.
+2.4. Récupération des transactions ("fetchMyTrades")
+Définit les paramètres pour récupérer l'historique des transactions.
+
+Clé	Description
+"marginMode"	Filtre les trades avec marge (True).
+"limit"	Pas de limite définie (null).
+"daysBack"	Pas de restriction de jours en arrière (null).
+"untilDays"	Peut récupérer les trades des 7 derniers jours.
+"symbolRequired"	Oblige à spécifier un symbole (True).
+2.5. Récupération des ordres ("fetchOrder")
+"marginMode": false → Ne supporte pas la récupération d'ordres en mode marge.
+"trigger": true → Permet de récupérer les ordres déclenchés.
+"trailing": false → Pas de support pour les trailing stops.
+"symbolRequired": true → Nécessite un symbole.
+2.6. Récupération des ordres ouverts ("fetchOpenOrders")
+"marginMode": true → Supporte les ordres ouverts en mode marge.
+"limit": 500 → Max 500 ordres ouverts peuvent être récupérés.
+"trigger": true → Peut récupérer les ordres déclenchés.
+"trailing": false → Pas de trailing stop.
+"symbolRequired": true → Un symbole est requis.
+2.7. Récupération des ordres fermés ("fetchClosedOrders")
+"marginMode": true → Mode marge supporté.
+"limit": 500 → Max 500 ordres fermés récupérables.
+"daysBack": null / "daysBackCanceled": null → Pas de restriction sur les jours passés.
+"untilDays": 7 → Peut récupérer jusqu'à 7 jours d'historique.
+"trigger": true → Peut récupérer ordres déclenchés.
+"trailing": false → Pas de trailing stop.
+"symbolRequired": true → Un symbole est requis.
+2.8. Récupération des chandeliers OHLCV ("fetchOHLCV")
+"limit": 1500 → Peut récupérer jusqu'à 1500 chandeliers.
+"symbolRequired": true → Oblige un symbole.
+3. Marché Swap ("swap")
+"linear": null → Pas d'information sur les contrats perpétuels linéaires.
+"inverse": null → Pas d'information sur les contrats inverses.
+4. Marché Future ("future")
+"linear": null → Pas de support défini pour les futures linéaires.
+"inverse": null → Pas de support défini pour les futures inverses.
+5. Options ("option")
+"option": null → Le marché des options n'est pas supporté.
+📌 Conclusion
+Ce JSON décrit les fonctionnalités de l'API d'un exchange pour différents types de marchés :
+
+Spot → Très détaillé (création d'ordres, récupération de trades/ordres...).
+Swap & Futures → Pas d'infos (null).
+Options → Non supporté (null).
+L'API semble bien optimisée pour le trading spot avec des options avancées comme les ordres iceberg, la prévention des auto-trades, et le stop-loss/take-profit.
