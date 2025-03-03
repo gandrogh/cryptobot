@@ -1,15 +1,8 @@
 # cryptobot
 
 Ici, le détail des étapes
-Debian 12.9 sur virtualbox
-Debian plutôt que Alpine pour la compatibilité des modules python
-
-VM : new:new root:
 
 Un grand Merci à Chat-GPT
-
-API key : 67be022945e41a0001668f7e
-passphrase : fromrsatothemoon - ca6f8519-8b50-4236-ab2f-108a23203f5b | Pas de restriction toutes les autorisations
 
 Langage : python
  - CCXT le mégabundle yatouskifo
@@ -34,7 +27,9 @@ source trading-bot/bin/activate
 de là : pip install ccxt yfinance pandas numpy ta requests
 Plus de message d'erreur !
 
+03/03/25 phase de test sur botest.py
 
+Web socket serait mieux que l'api
 
 
 
